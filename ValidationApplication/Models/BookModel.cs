@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using ValidationApplication.Resources;
+using ValidationApplication.Validations;
 
 namespace ValidationApplication.Models
 {
@@ -13,9 +14,7 @@ namespace ValidationApplication.Models
         public string SKU { get; set; }
 
         [Required]
-        [RegularExpression("^(?:ISBN(?:-13)?:?\\ )?(?=[0-9]{13}$|(?=(?:[0-9]+[-\\ ]){4})[-\\ 0-9]{17}$)97[89][-\\ ]?[0-9]{1,5}[-\\ ]?[0-9]+[-\\ ]?[0-9]+[-\\ ]?[0-9]$",
-            ErrorMessageResourceType = typeof(ValidationMessages), 
-            ErrorMessageResourceName = "ISBN")]
+        [ISBN]
         public string ISBN { get; set; }
 
         [Required]

@@ -14,29 +14,6 @@ namespace ValidationApplication.Pages
         [BindProperty]
         public BookModel Input { get; set; }
 
-        //public class BookCreationInput
-        //{
-        //    [Required]
-        //    public string SKU { get; set; }
-
-        //    [Required]
-        //    public string ISBN { get; set; }
-
-        //    [Required]
-        //    [StringLength(maximumLength: 10, MinimumLength = 4)]
-        //    public string Name { get; set; }
-
-        //    [Required]
-        //    [EmailAddress]
-        //    public string Email { get; set; }
-
-        //    [Url]
-        //    public string Url { get; set; }
-
-        //    [Range(0, 200)]
-        //    public int NumberOfReaders { get; set; }
-        //}
-
         public void OnGet()
         {
             
