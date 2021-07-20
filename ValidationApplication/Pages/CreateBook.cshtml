@@ -2,11 +2,19 @@
 @model ValidationApplication.Pages.CreateObjectModel
 @{
 }
-<form asp-page="/CreateObject" asp-page-handler="Object" method="post">
+
+
+<form asp-page="/CreateBook" asp-page-handler="Book" method="post">
+    <div asp-validation-summary="All"></div>
     <div class="mb-3">
         <label class="form-label">SKU</label>
         <input asp-for="Input.SKU" class="form-control">
         <span asp-validation-for="Input.SKU"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">ISBN</label>
+        <input asp-for="Input.ISBN" class="form-control">
+        <span asp-validation-for="Input.ISBN"></span>
     </div>
     <div class="mb-3">
         <label class="form-label">Name</label>
@@ -24,14 +32,9 @@
         <span asp-validation-for="Input.Url"></span>
     </div>
     <div class="mb-3">
-        <label class="form-label">Zip</label>
-        <input asp-for="Input.Zip" class="form-control">
-        <span asp-validation-for="Input.Zip"></span>
+        <label class="form-label">NumberOfReaders</label>
+        <input asp-for="Input.Url" class="form-control">
+        <span asp-validation-for="Input.NumberOfReaders"></span>
     </div>
-    <div class="mb-3">
-        <label class="form-label">NumberOfItems</label>
-        <input asp-for="Input.NumberOfItems" class="form-control">
-        <span asp-validation-for="Input.NumberOfItems"></span>
-    </div>
-    <button type="submit" class="btn btn-primary" asp-page="/CreateObject" asp-page-handler="Object">Submit</button>
+    <button type="submit" class="btn btn-primary" asp-page="/CreateBook" asp-page-handler="Book">Submit</button>
 </form>

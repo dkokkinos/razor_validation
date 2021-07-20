@@ -1,8 +1,39 @@
-﻿@{
+﻿@model ValidationApplication.Models.BookModel 
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<form asp-action="CreateBook" method="post">
+    <div asp-validation-summary="All"></div>
+    <div class="mb-3">
+        <label for="book_sku" asp-for="SKU" class="form-label">SKU</label>
+        <input  asp-for="SKU" id="book_sku" class="form-control">
+        <span asp-validation-for="SKU"></span>
+    </div>
+    <div class="mb-3">
+        <label for="book_isbn" class="form-label">ISBN</label>
+        <input id="book_isbn" asp-for="ISBN" class="form-control">
+        <span asp-validation-for="ISBN"></span>
+    </div>
+    <div class="mb-3">
+        <label for="book_name" class="form-label">Name</label>
+        <input id="book_name" asp-for="Name" class="form-control">
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div class="mb-3">
+        <label for="book_email" class="form-label">Email</label>
+        <input id="book_email" asp-for="Email" class="form-control">
+        <span asp-validation-for="Email"></span>
+    </div>
+    <div class="mb-3">
+        <label for="book_url" class="form-label">Url</label>
+        <input id="book_url" asp-for="Url" class="form-control">
+        <span asp-validation-for="Url"></span>
+    </div>
+    <div class="mb-3">
+        <label for="book_numberofreaders" class="form-label">NumberOfReaders</label>
+        <input id="book_numberofreaders" asp-for="NumberOfReaders" class="form-control">
+        <span asp-validation-for="NumberOfReaders"></span>
+    </div>
+    <button type="submit" class="btn btn-primary" asp-action="CreateBook" >Submit</button>
+</form>

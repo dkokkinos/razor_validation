@@ -33,5 +33,13 @@ namespace ValidationApplication.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateBook(BookModel model)
+        {
+            if (!ModelState.IsValid)
+                return View("Index", model);
+            return View("Index");
+        }
     }
 }

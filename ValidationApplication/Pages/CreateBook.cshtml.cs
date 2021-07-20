@@ -11,12 +11,15 @@ namespace ValidationApplication.Pages
     public class CreateObjectModel : PageModel
     {
         [BindProperty]
-        public ObjectCreationInput Input { get; set; }
+        public BookCreationInput Input { get; set; }
 
-        public class ObjectCreationInput
+        public class BookCreationInput
         {
             [Required]
             public string SKU { get; set; }
+
+            [Required]
+            public string ISBN { get; set; }
 
             [Required]
             [StringLength(maximumLength: 10, MinimumLength = 4)]
@@ -29,9 +32,7 @@ namespace ValidationApplication.Pages
             [Url]
             public string Url { get; set; }
 
-            public string Zip { get; set; }
-
-            public int NumberOfItems { get; set; }
+            public int NumberOfReaders { get; set; }
         }
 
         public void OnGet()
@@ -39,7 +40,7 @@ namespace ValidationApplication.Pages
             
         }
 
-        public async Task<IActionResult> OnPostObject()
+        public async Task<IActionResult> OnPostBook()
         {
             if (ModelState.IsValid)
             {
