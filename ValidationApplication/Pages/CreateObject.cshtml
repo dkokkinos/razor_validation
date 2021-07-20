@@ -1,0 +1,37 @@
+﻿@page
+@model ValidationApplication.Pages.CreateObjectModel
+@{
+}
+<form asp-page="/CreateObject" asp-page-handler="Object" method="post">
+    <div class="mb-3">
+        <label class="form-label">SKU</label>
+        <input asp-for="Input.SKU" class="form-control">
+        <span asp-validation-for="Input.SKU"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input asp-for="Input.Name" class="form-control">
+        <span asp-validation-for="Input.Name"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input asp-for="Input.Email" class="form-control">
+        <span asp-validation-for="Input.Email"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Url</label>
+        <input asp-for="Input.Url" class="form-control">
+        <span asp-validation-for="Input.Url"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Zip</label>
+        <input asp-for="Input.Zip" class="form-control">
+        <span asp-validation-for="Input.Zip"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">NumberOfItems</label>
+        <input asp-for="Input.NumberOfItems" class="form-control">
+        <span asp-validation-for="Input.NumberOfItems"></span>
+    </div>
+    <button type="submit" class="btn btn-primary" asp-page="/CreateObject" asp-page-handler="Object">Submit</button>
+</form>
