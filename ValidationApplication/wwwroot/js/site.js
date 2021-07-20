@@ -3,7 +3,11 @@
 
 // Write your JavaScript code.
 $.validator.addMethod('uppercase', function (value, element, params) {
-    return value === value.toUpperCase();
+    let startingUpperCaseCharacters = parseInt(params);
+    if (value.length < startingUpperCaseCharacters)
+        return false;
+
+    return value.substring(0, startingUpperCaseCharacters) === value.substring(0, startingUpperCaseCharacters).toUpperCase();
 });
 
-$.validator.unobtrusive.adapters.addBool("uppercase");
+$.validator.unobtrusive.adapters.addSingleVal("uppercase", "startingUpperCaseCharacters");
