@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
@@ -41,6 +43,18 @@ namespace ValidationApplication.Controllers
                 return View("Index", model);
 
             return LocalRedirect("/Home/Success");
+        }
+
+        public async Task<IActionResult> BookExists(
+            [RegularExpression("^(?:ISBN(?:-13)?:?\\ )?(?=[0-9]{13}$|(?=(?:[0-9]+[-\\ ]){4})[-\\ 0-9]{17}$)97[89][-\\ ]?[0-9]{1,5}[-\\ ]?[0-9]+[-\\ ]?[0-9]+[-\\ ]?[0-9]$"),
+            BindRequired, FromQuery]string isbn)
+        {
+            if (ModelState.IsValid)
+            {
+                // check if book exists
+                return Ok();
+            }
+            throw new ArgumentException("Invalid ISBN number");
         }
 
         public IActionResult Success()
