@@ -9,7 +9,7 @@
     <div asp-validation-summary="All"></div>
     <div class="mb-3">
         <label for="book_sku" asp-for="SKU" class="form-label">SKU</label>
-        <input  asp-for="SKU" id="book_sku" class="form-control">
+        <input asp-for="SKU" id="book_sku" class="form-control">
         <span asp-validation-for="SKU"></span>
     </div>
     <div class="mb-3">
@@ -28,6 +28,11 @@
         <span asp-validation-for="Email"></span>
     </div>
     <div class="mb-3">
+        <label for="book_email" class="form-label">EmailRepeated</label>
+        <input id="book_email" asp-for="EmailRepeated" class="form-control">
+        <span asp-validation-for="EmailRepeated"></span>
+    </div>
+    <div class="mb-3">
         <label for="book_url" class="form-label">Url</label>
         <input id="book_url" asp-for="Url" class="form-control">
         <span asp-validation-for="Url"></span>
@@ -37,5 +42,5 @@
         <input id="book_numberofreaders" asp-for="NumberOfReaders" class="form-control">
         <span asp-validation-for="NumberOfReaders"></span>
     </div>
-    <button type="submit" class="btn btn-primary" asp-action="CreateBook" >Submit</button>
+    <button type="submit" class="btn btn-primary" asp-action="CreateBook">Submit</button>
 </form>

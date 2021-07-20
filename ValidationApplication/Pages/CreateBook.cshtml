@@ -28,6 +28,11 @@
         <span asp-validation-for="Input.Email"></span>
     </div>
     <div class="mb-3">
+        <label class="form-label">Confirm Email</label>
+        <input asp-for="Input.EmailRepeated" class="form-control">
+        <span asp-validation-for="Input.EmailRepeated"></span>
+    </div>
+    <div class="mb-3">
         <label class="form-label">Url</label>
         <input asp-for="Input.Url" class="form-control">
         <span asp-validation-for="Input.Url"></span>

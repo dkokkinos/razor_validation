@@ -22,9 +22,15 @@ namespace ValidationApplication.Models
         [EmailAddress]
         public string Email { get; set; }
 
+        [Required]
+        [EmailAddress]
+        [Compare("Email")]
+        public string EmailRepeated { get; set; }
+
         [Url]
         public string Url { get; set; }
 
+        [Range(0, 200)]
         public int NumberOfReaders { get; set; }
     }
 }
