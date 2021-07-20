@@ -51,10 +51,12 @@ namespace ValidationApplication.Controllers
         {
             if (ModelState.IsValid)
             {
-                // check if book exists
-                return Ok();
+                if(isbn.StartsWith("ISBN"))
+                    return Json("The book already exists");
+                else
+                    return Json(true);
             }
-            throw new ArgumentException("Invalid ISBN number");
+            return Json("invalid ISBN");
         }
 
         public IActionResult Success()

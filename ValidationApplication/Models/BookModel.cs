@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace ValidationApplication.Models
 
         [Required]
         [ISBN]
+        [Remote(action:"BookExists", controller:"Home")]
         public string ISBN { get; set; }
 
         [Required]
