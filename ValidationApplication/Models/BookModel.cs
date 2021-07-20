@@ -19,6 +19,7 @@ namespace ValidationApplication.Models
 
         [Required]
         [StringLength(maximumLength: 10, MinimumLength = 4)]
+        [UpperCase]
         public string Name { get; set; }
 
         [Required]
