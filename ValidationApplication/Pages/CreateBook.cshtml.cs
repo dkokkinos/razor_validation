@@ -44,7 +44,7 @@ namespace ValidationApplication.Pages
         {
             if (ModelState.IsValid)
             {
-
+                return RedirectToPage("Success");
             }
             return Page();
         }

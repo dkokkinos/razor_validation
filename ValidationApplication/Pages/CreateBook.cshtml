@@ -3,6 +3,7 @@
 @{
 }
 
+<div>create book with validation using a <strong>Razor</strong> page</div>
 
 <form asp-page="/CreateBook" asp-page-handler="Book" method="post">
     <div asp-validation-summary="All"></div>
@@ -33,7 +34,7 @@
     </div>
     <div class="mb-3">
         <label class="form-label">NumberOfReaders</label>
-        <input asp-for="Input.Url" class="form-control">
+        <input asp-for="Input.NumberOfReaders" class="form-control">
         <span asp-validation-for="Input.NumberOfReaders"></span>
     </div>
     <button type="submit" class="btn btn-primary" asp-page="/CreateBook" asp-page-handler="Book">Submit</button>

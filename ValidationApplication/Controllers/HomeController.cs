@@ -39,7 +39,13 @@ namespace ValidationApplication.Controllers
         {
             if (!ModelState.IsValid)
                 return View("Index", model);
-            return View("Index");
+
+            return LocalRedirect("/Home/Success");
+        }
+
+        public IActionResult Success()
+        {
+            return View();
         }
     }
 }
