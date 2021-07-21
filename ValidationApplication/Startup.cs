@@ -1,13 +1,17 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
+using ValidationApplication.Resources;
 
 namespace ValidationApplication
 {
@@ -20,13 +24,27 @@ namespace ValidationApplication
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        private const string enUSCulture = "en-US";
         public void ConfigureServices(IServiceCollection services)
         {
+            //services.AddLocalization(options => options.ResourcesPath = "Resources");
+
+
+            // we need to add this middleware in order to be able to resolve IStringLocalizer
+            services.AddMvc()
+                .AddDataAnnotationsLocalization(options =>
+                {
+                    // Using one resource string for multiple classes
+                    //options.DataAnnotationLocalizerProvider = (type, factory) =>
+                    //    factory.Create(typeof(ValidationMessages));
+                });
+
             services.AddControllersWithViews();
 
             //
             services.AddRazorPages();
+
+          
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,6 +60,15 @@ namespace ValidationApplication
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            var supportedCultures = new[] { "en", "el" };
+            var localizationOptions = new RequestLocalizationOptions().SetDefaultCulture(supportedCultures[0])
+                .AddSupportedCultures(supportedCultures)
+                .AddSupportedUICultures(supportedCultures);
+
+            //Localization middleware
+            app.UseRequestLocalization(localizationOptions);
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 

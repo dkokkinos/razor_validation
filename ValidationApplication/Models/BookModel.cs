@@ -11,7 +11,7 @@ namespace ValidationApplication.Models
 {
     public class BookModel
     {
-        [Required]
+        [Required(ErrorMessageResourceType = typeof(ValidationMessages), ErrorMessageResourceName = "SKU")]
         public string SKU { get; set; }
 
         [Required]

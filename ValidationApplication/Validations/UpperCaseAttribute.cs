@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using Microsoft.Extensions.Localization;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using ValidationApplication.Resources;
 
 namespace ValidationApplication.Validations
 {
@@ -19,8 +21,10 @@ namespace ValidationApplication.Validations
 
         public void AddValidation(ClientModelValidationContext context)
         {
+            var localizer = context.ActionContext.HttpContext.RequestServices.GetService(typeof(IStringLocalizer<ValidationMessages>)) as IStringLocalizer<ValidationMessages>;
+           
             context.Attributes.Add("data-val", "true");
-            context.Attributes.Add("data-val-uppercase", ErrorMessage);
+            context.Attributes.Add("data-val-uppercase", string.Format( localizer.GetString("Name"), _startingUpperCaseCharacters ));
             context.Attributes.Add("data-val-uppercase-startingUpperCaseCharacters", $"{_startingUpperCaseCharacters}");
         }
 
