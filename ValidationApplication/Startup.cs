@@ -24,11 +24,9 @@ namespace ValidationApplication
 
         public IConfiguration Configuration { get; }
 
-        private const string enUSCulture = "en-US";
         public void ConfigureServices(IServiceCollection services)
         {
             //services.AddLocalization(options => options.ResourcesPath = "Resources");
-
 
             // we need to add this middleware in order to be able to resolve IStringLocalizer
             services.AddMvc()
@@ -43,11 +41,8 @@ namespace ValidationApplication
 
             //
             services.AddRazorPages();
-
-          
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -57,7 +52,6 @@ namespace ValidationApplication
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
@@ -82,7 +76,6 @@ namespace ValidationApplication
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-                //
                 endpoints.MapRazorPages();
             });
         }
