@@ -9,7 +9,7 @@ using ValidationApplication.Models;
 
 namespace ValidationApplication.Pages
 {
-    public class CreateObjectModel : PageModel
+    public class CreateBookModel : PageModel
     {
         [BindProperty]
         public BookModel Input { get; set; }
