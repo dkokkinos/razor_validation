@@ -2,45 +2,12 @@
 @{
     ViewData["Title"] = "Home Page";
 }
+<p>This application demonstrates how to validate user input in ASP.NET MVC Views and Razor Pages.</p>
 
-<div>create book with validation using a <strong>MVC</strong> view page</div>
-
-<form asp-action="CreateBook" method="post">
-    <div asp-validation-summary="All"></div>
-    <div class="mb-3">
-        <label for="book_sku" asp-for="SKU" class="form-label">SKU</label>
-        <input asp-for="SKU" id="book_sku" class="form-control">
-        <span asp-validation-for="SKU"></span>
-    </div>
-    <div class="mb-3">
-        <label for="book_isbn" class="form-label">ISBN (example 978-3-16-148410-0)</label>
-        <input id="book_isbn" asp-for="ISBN" class="form-control">
-        <span asp-validation-for="ISBN"></span>
-    </div>
-    <div class="mb-3">
-        <label for="book_name" class="form-label">Name</label>
-        <input id="book_name" asp-for="Name" class="form-control">
-        <span asp-validation-for="Name"></span>
-    </div>
-    <div class="mb-3">
-        <label for="book_email" class="form-label">Email</label>
-        <input id="book_email" asp-for="Email" class="form-control">
-        <span asp-validation-for="Email"></span>
-    </div>
-    <div class="mb-3">
-        <label for="book_email" class="form-label">EmailRepeated</label>
-        <input id="book_email" asp-for="EmailRepeated" class="form-control">
-        <span asp-validation-for="EmailRepeated"></span>
-    </div>
-    <div class="mb-3">
-        <label for="book_url" class="form-label">Url</label>
-        <input id="book_url" asp-for="Url" class="form-control">
-        <span asp-validation-for="Url"></span>
-    </div>
-    <div class="mb-3">
-        <label for="book_numberofreaders" class="form-label">NumberOfReaders</label>
-        <input id="book_numberofreaders" asp-for="NumberOfReaders" class="form-control">
-        <span asp-validation-for="NumberOfReaders"></span>
-    </div>
-    <button type="submit" class="btn btn-primary" asp-action="CreateBook">Submit</button>
-</form>
+<div class="card card-default">
+    <a class="nav-link text-dark" asp-area="" asp-controller="/Book">Go To MVC Validation</a>
+</div>
+<br/>
+<div class="card card-default">
+    <a class="nav-link text-dark" asp-area="" asp-page="/CreateBookUsingRazor">Go To Razor Validation</a>
+</div>
