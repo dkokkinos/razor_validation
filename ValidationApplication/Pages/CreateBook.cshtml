@@ -1,0 +1,52 @@
+﻿@page
+@model ValidationApplication.Pages.CreateBookModel
+@{
+    ViewData["Title"] = "Razor Page Book Creation";
+}
+
+<div>Create book with validation using a <strong>Razor</strong> Page</div>
+
+<form asp-page="/CreateBook" asp-page-handler="Book" method="post">
+    <div asp-validation-summary="All"></div>
+    <div class="mb-3">
+        <label class="form-label">ISBN (example 978-3-16-148410-0)</label>
+        <input asp-for="ISBN" class="form-control">
+        <span asp-validation-for="ISBN"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input asp-for="Book.Name" class="form-control">
+        <span asp-validation-for="Book.Name"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Author's Name</label>
+        <input asp-for="Book.AuthorName" class="form-control">
+        <span asp-validation-for="Book.AuthorName"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input asp-for="Book.Email" class="form-control">
+        <span asp-validation-for="Book.Email"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Confirm Email</label>
+        <input asp-for="Book.EmailRepeated" class="form-control">
+        <span asp-validation-for="Book.EmailRepeated"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Description</label>
+        <input asp-for="Book.Description" class="form-control">
+        <span asp-validation-for="Book.Description"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Url</label>
+        <input asp-for="Book.Url" class="form-control">
+        <span asp-validation-for="Book.Url"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">NumberOfReaders</label>
+        <input asp-for="Book.NumberOfPages" class="form-control">
+        <span asp-validation-for="Book.NumberOfPages"></span>
+    </div>
+    <button type="submit" class="btn btn-primary" asp-page="/CreateBook" asp-page-handler="Book">Submit</button>
+</form>

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -11,6 +12,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
+using ValidationApplication.Data;
 using ValidationApplication.Resources;
 
 namespace ValidationApplication
@@ -41,6 +43,9 @@ namespace ValidationApplication
 
             //
             services.AddRazorPages();
+
+            services.AddDbContext<BookDbContext>(options =>
+                options.UseInMemoryDatabase("book-db"));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

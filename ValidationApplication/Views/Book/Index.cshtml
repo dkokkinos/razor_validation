@@ -8,11 +8,6 @@
 <form asp-action="CreateBook" method="post">
     <div asp-validation-summary="All"></div>
     <div class="mb-3">
-        <label for="book_sku" asp-for="SKU" class="form-label">SKU</label>
-        <input asp-for="SKU" id="book_sku" class="form-control">
-        <span asp-validation-for="SKU"></span>
-    </div>
-    <div class="mb-3">
         <label for="book_isbn" class="form-label">ISBN (example 978-3-16-148410-0)</label>
         <input id="book_isbn" asp-for="ISBN" class="form-control">
         <span asp-validation-for="ISBN"></span>
@@ -21,6 +16,11 @@
         <label for="book_name" class="form-label">Name</label>
         <input id="book_name" asp-for="Name" class="form-control">
         <span asp-validation-for="Name"></span>
+    </div>
+    <div class="mb-3">
+        <label for="book_authorname" class="form-label">Author's Name</label>
+        <input id="book_authorname" asp-for="AuthorName" class="form-control">
+        <span asp-validation-for="AuthorName"></span>
     </div>
     <div class="mb-3">
         <label for="book_email" class="form-label">Email</label>
@@ -33,14 +33,19 @@
         <span asp-validation-for="EmailRepeated"></span>
     </div>
     <div class="mb-3">
+        <label for="book_description" class="form-label">Description</label>
+        <input id="book_description" asp-for="Description" class="form-control">
+        <span asp-validation-for="Description"></span>
+    </div>
+    <div class="mb-3">
         <label for="book_url" class="form-label">Url</label>
         <input id="book_url" asp-for="Url" class="form-control">
         <span asp-validation-for="Url"></span>
     </div>
     <div class="mb-3">
-        <label for="book_numberofreaders" class="form-label">NumberOfReaders</label>
-        <input id="book_numberofreaders" asp-for="NumberOfReaders" class="form-control">
-        <span asp-validation-for="NumberOfReaders"></span>
+        <label for="book_numberofpages" class="form-label">NumberOfPages</label>
+        <input id="book_numberofpages" asp-for="NumberOfPages" class="form-control">
+        <span asp-validation-for="NumberOfPages"></span>
     </div>
     <button type="submit" class="btn btn-primary" asp-action="CreateBook">Submit</button>
 </form>

@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
+using ValidationApplication.Models;
 
 namespace ValidationApplication.Controllers
 {
@@ -7,6 +9,15 @@ namespace ValidationApplication.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult CreateBook(BookModel model)
+        {
+            if (!ModelState.IsValid)
+                return View("Index", model);
+
+            return LocalRedirect("/Home/Success");
         }
     }
 }

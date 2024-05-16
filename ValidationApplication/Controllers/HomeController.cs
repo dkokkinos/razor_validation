@@ -36,23 +36,14 @@ namespace ValidationApplication.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        [HttpPost]
-        public async Task<IActionResult> CreateBook(BookModel model)
-        {
-            if (!ModelState.IsValid)
-                return View("Index", model);
-
-            return LocalRedirect("/Home/Success");
-        }
-
         public async Task<IActionResult> BookExists(
-            [RegularExpression("^(?:ISBN(?:-13)?:?\\ )?(?=[0-9]{13}$|(?=(?:[0-9]+[-\\ ]){4})[-\\ 0-9]{17}$)97[89][-\\ ]?[0-9]{1,5}[-\\ ]?[0-9]+[-\\ ]?[0-9]+[-\\ ]?[0-9]$"),
-            BindRequired, FromQuery]string isbn)
+            [RegularExpression("^(?:ISBN(?:-13)?:?\\ )?(?=[0-9]{13}$|(?=(?:[0-9]+[-\\ ]){4})[-\\ 0-9]{17}$)97[89][-\\ ]?[0-9]{1,5}[-\\ ]?[0-9]+[-\\ ]?[0-9]+[-\\ ]?[0-9]$")]
+                string isbn)
         {
             if (ModelState.IsValid)
             {
                 if(isbn.StartsWith("ISBN"))
-                    return Json("The book already exists");
+                    return Json("The ISBN already exists");
                 else
                     return Json(true);
             }
