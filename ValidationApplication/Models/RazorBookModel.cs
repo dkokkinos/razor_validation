@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using ValidationApplication.Validations;
 
@@ -36,6 +37,10 @@ namespace ValidationApplication.Models
 
         [Url]
         public string Url { get; set; }
+
+        [MinLength(1)]
+        [MaxLength(10)]
+        public List<string> Genres { get; set; } = new List<string>();
 
         [Range(0, 2000)]
         public int NumberOfPages { get; set; }

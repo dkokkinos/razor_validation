@@ -36,7 +36,7 @@ namespace ValidationApplication.Validations
                     return false;
                 return str.Substring(0, _startingUpperCaseCharacters) == str.Substring(0, _startingUpperCaseCharacters).ToUpper();
             }
-            throw new ArgumentException("value is not a string.");
+            return true;
         }
     }
 }

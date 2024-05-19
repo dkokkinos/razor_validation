@@ -7,6 +7,7 @@
 
 <form asp-action="CreateBook" method="post">
     <div asp-validation-summary="All"></div>
+
     <div class="mb-3">
         <label for="book_isbn" class="form-label">ISBN (example 978-3-16-148410-0)</label>
         <input id="book_isbn" asp-for="ISBN" class="form-control">
@@ -36,6 +37,11 @@
         <label for="book_description" class="form-label">Description</label>
         <input id="book_description" asp-for="Description" class="form-control">
         <span asp-validation-for="Description"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Genres</label>
+        <select asp-for="Genres" asp-items="Model.GenreCollection" class="form-control"></select>
+        <span asp-validation-for="Genres"></span>
     </div>
     <div class="mb-3">
         <label for="book_url" class="form-label">Url</label>
