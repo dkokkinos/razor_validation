@@ -44,7 +44,7 @@ namespace ValidationApplication
 
             services.AddControllersWithViews();
 
-            //
+            // Makes the Razor Pages available.
             services.AddRazorPages();
 
             services.AddDbContext<BookDbContext>(options =>
@@ -86,6 +86,7 @@ namespace ValidationApplication
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+                // Adds endpoints for Razor Pages.
                 endpoints.MapRazorPages();
             });
         }
