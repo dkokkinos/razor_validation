@@ -8,16 +8,9 @@ namespace ValidationApplication.Models
     public class RazorBookModel
     {
         [Required]
-        [StringLength(maximumLength: 10, MinimumLength = 4)]
-        [UpperCase(2)]
+        [StringLength(maximumLength: 10, MinimumLength = 2)]
+        [UpperCase(1)]
         public string Name { get; set; }
-
-        //[Required]
-        //[ISBN]
-        //[PageRemote(HttpMethod = "post",
-        //    AdditionalFields = "__RequestVerificationToken",
-        //    PageHandler = "CheckISBN")]
-        public string ISBN { get; set; }
 
         [Required]
         [StringLength(maximumLength: 30, MinimumLength = 3)]

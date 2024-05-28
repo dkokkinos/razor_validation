@@ -1,33 +1,45 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FluentValidation;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 using System.Threading.Tasks;
 using ValidationApplication.Data;
 using ValidationApplication.Models;
+using ValidationApplication.Validations;
 
 namespace ValidationApplication.Controllers
 {
-    public class BookController : Controller
+    public class BookFluentValidationController : Controller
     {
         private readonly BookDbContext _dbContext;
 
-        public BookController(BookDbContext dbContext)
+        public BookFluentValidationController(BookDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
         public IActionResult Index()
         {
-            return View(new BookModel());
+            return View(new FluentValidationBookModel());
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateBook(BookModel model)
+        public async Task<IActionResult> CreateBook(FluentValidationBookModel model,
+            [FromServices] IValidator<FluentValidationBookModel> validator)
         {
-            if (!ModelState.IsValid)
-                return View("Index", model);
+            var result = await validator.ValidateAsync(model);
+
+            if (!result.IsValid)
+            {
+                var modelState = new ModelStateDictionary();
+                foreach(var error in result.Errors)
+                {
+                    ModelState.AddModelError(error.PropertyName,
+                        error.ErrorMessage);
+                }
+                return View("Index", modelState);
+            }
 
             _dbContext.Add(new Book()
             {
@@ -51,7 +63,7 @@ namespace ValidationApplication.Controllers
         {
             if (ModelState.IsValid)
             {
-                var isbnAlreadyExists = await _dbContext.Books.AnyAsync(x=>x.ISBN == isbn);
+                var isbnAlreadyExists = await _dbContext.Books.AnyAsync(x => x.ISBN == isbn);
                 if (isbnAlreadyExists)
                     return Json("The ISBN already exists");
                 else
@@ -59,6 +71,5 @@ namespace ValidationApplication.Controllers
             }
             return Json("invalid ISBN");
         }
-
     }
 }

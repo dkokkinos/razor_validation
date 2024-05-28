@@ -76,3 +76,11 @@ body {
     font-size: 0.85rem;
     color: #F1416C;
 }
+
+.form-control.input-validation-error {
+    border-color: red;
+}
+
+.form-control.valid {
+    border-color: #3c763d;
+}

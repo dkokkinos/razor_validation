@@ -1,3 +1,4 @@
+using FluentValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -13,7 +14,9 @@ using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using ValidationApplication.Data;
+using ValidationApplication.Models;
 using ValidationApplication.Resources;
+using ValidationApplication.Validations;
 
 namespace ValidationApplication
 {
@@ -46,6 +49,8 @@ namespace ValidationApplication
 
             services.AddDbContext<BookDbContext>(options =>
                 options.UseInMemoryDatabase("book-db"));
+
+            services.AddScoped<IValidator<FluentValidationBookModel>, CreateBookRequestValidator>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

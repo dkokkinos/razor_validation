@@ -1,13 +1,39 @@
-﻿@model ValidationApplication.Models.BookModel 
+﻿@model List<ValidationApplication.Models.BookModel>
 @{
     ViewData["Title"] = "Home Page";
 }
+<h1>MVC & Razor Pages Validation Sample ASP.NET Application.</h1>
 <p>This application demonstrates how to validate user input in ASP.NET MVC Views and Razor Pages.</p>
-
-<div class="card card-default">
-    <a class="nav-link text-dark" asp-area="" asp-controller="/Book">Go To MVC Validation</a>
+<br />
+<h2>Existing Books</h2>
+@if(!Model.Any())
+{
+    <p>There is no Books in the Database.</p>
+}
+else
+{
+    foreach(var book in Model)
+    {
+        <div class="card text-dark bg-light">
+            <div class="card-body">
+                ISBN:@book.ISBN, Name:@book.Name, Author's Name:@book.AuthorName, Genres:@string.Join(",", book.Genres), Email:@book.Email, NumberOfPages:@book.NumberOfPages
+            </div>
+        </div>
+        <br />
+    }
+    
+}
+<br />
+<br />
+<h2>Select one of the following options to create a new Book.</h2>
+<div class="card text-dark bg-light">
+    <a class="nav-link text-dark" asp-area="" asp-controller="/Book"><strong>Go To MVC Validation</strong></a>
 </div>
 <br/>
-<div class="card card-default">
-    <a class="nav-link text-dark" asp-area="" asp-page="/CreateBookUsingRazor">Go To Razor Validation</a>
+<div class="card text-dark bg-light">
+    <a class="nav-link text-dark" asp-area="" asp-page="/CreateBookUsingRazor"><strong>Go To Razor Validation</strong></a>
+</div>
+<br />
+<div class="card text-dark bg-light">
+    <a class="nav-link text-dark" asp-area="" asp-controller="/BookFluentValidation"><strong>Go To Fluent Validation</strong></a>
 </div>

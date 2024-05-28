@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using ValidationApplication.Data;
 using ValidationApplication.Models;
 
 namespace ValidationApplication.Controllers
@@ -14,15 +16,30 @@ namespace ValidationApplication.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly BookDbContext _dbContext;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(BookDbContext _bookContext, 
+            ILogger<HomeController> logger)
         {
+            _dbContext = _bookContext;
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var books = await _dbContext.Books.ToListAsync();
+            var bookModels = books.Select(x => new BookModel()
+            {
+                ISBN = x.ISBN,
+                Name = x.Name,
+                AuthorName = x.AuthorName,
+                Description = x.Description,
+                Email = x.Email,
+                Genres = x.Genres,
+                NumberOfPages = x.NumberOfPages,
+                Url = x.Url
+            }).ToList();
+            return View(bookModels);
         }
 
         public IActionResult Privacy()
@@ -34,20 +51,6 @@ namespace ValidationApplication.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-
-        public async Task<IActionResult> BookExists(
-            [RegularExpression("^(?:ISBN(?:-13)?:?\\ )?(?=[0-9]{13}$|(?=(?:[0-9]+[-\\ ]){4})[-\\ 0-9]{17}$)97[89][-\\ ]?[0-9]{1,5}[-\\ ]?[0-9]+[-\\ ]?[0-9]+[-\\ ]?[0-9]$")]
-                string isbn)
-        {
-            if (ModelState.IsValid)
-            {
-                if(isbn.StartsWith("ISBN"))
-                    return Json("The ISBN already exists");
-                else
-                    return Json(true);
-            }
-            return Json("invalid ISBN");
         }
 
         public IActionResult Success()
