@@ -35,7 +35,7 @@ namespace ValidationApplication.Models
         [MaxLength(10)]
         public List<string> Genres { get; set; } = new List<string>();
 
-        [Range(0, 2000)]
+        [Range(10, 2000)]
         public int NumberOfPages { get; set; }
 
     }

@@ -24,7 +24,7 @@ namespace ValidationApplication.Validations
             var localizer = context.ActionContext.HttpContext.RequestServices.GetService(typeof(IStringLocalizer<ValidationMessages>)) as IStringLocalizer<ValidationMessages>;
            
             context.Attributes.Add("data-val", "true");
-            context.Attributes.Add("data-val-uppercase", string.Format( localizer.GetString("Name"), _startingUpperCaseCharacters ));
+            context.Attributes.Add("data-val-uppercase", string.Format( localizer.GetString("Name_UpperCase"), _startingUpperCaseCharacters ));
             context.Attributes.Add("data-val-uppercase-startingUpperCaseCharacters", $"{_startingUpperCaseCharacters}");
         }
 

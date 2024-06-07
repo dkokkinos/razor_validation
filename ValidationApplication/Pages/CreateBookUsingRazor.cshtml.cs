@@ -32,8 +32,9 @@ namespace ValidationApplication.Pages
             new SelectListItem { Value = "Scifi", Text = "Scifi" }
          };
 
-        [BindProperty]
-        public RazorBookModel Book { get; set; }
+        // This attribute maps properties of the Book model with the HTML form data.
+        [BindProperty] 
+        public RazorBookModel Book { get; set; } // The model used in the HTML form.
 
         [BindProperty]
         [Required]
@@ -48,8 +49,10 @@ namespace ValidationApplication.Pages
             
         }
 
+        // This method is called when the user submits the form.
         public async Task<IActionResult> OnPostBook()
         {
+            // All properties of the Book model are filled.
             if (!ModelState.IsValid)
                 return Page();
 

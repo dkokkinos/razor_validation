@@ -19,7 +19,7 @@ namespace ValidationApplication.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class ValidationMessages {
@@ -61,6 +61,87 @@ namespace ValidationApplication.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Author name should be more than {1} and less than {2} characters long.
+        /// </summary>
+        public static string AuthorName_Length {
+            get {
+                return ResourceManager.GetString("AuthorName_Length", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Author name is required.
+        /// </summary>
+        public static string AuthorName_Required {
+            get {
+                return ResourceManager.GetString("AuthorName_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description should be less than {1} characters long.
+        /// </summary>
+        public static string Description_Length {
+            get {
+                return ResourceManager.GetString("Description_Length", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email is required.
+        /// </summary>
+        public static string Email_Required {
+            get {
+                return ResourceManager.GetString("Email_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email is not valid.
+        /// </summary>
+        public static string Email_Validation {
+            get {
+                return ResourceManager.GetString("Email_Validation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &apos;{0}&apos; and &apos;{1}&apos; do not match.
+        /// </summary>
+        public static string EmailRepeated_Compare {
+            get {
+                return ResourceManager.GetString("EmailRepeated_Compare", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email is required.
+        /// </summary>
+        public static string EmailRepeated_Required {
+            get {
+                return ResourceManager.GetString("EmailRepeated_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email is not valid.
+        /// </summary>
+        public static string EmailRepeated_Validation {
+            get {
+                return ResourceManager.GetString("EmailRepeated_Validation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Genres should have at least {1} item selected.
+        /// </summary>
+        public static string Genres_MinLength {
+            get {
+                return ResourceManager.GetString("Genres_MinLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} must be a valid ISBN code.
         /// </summary>
         public static string ISBN {
@@ -70,20 +151,65 @@ namespace ValidationApplication.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Name should have the first {0} character uppercase.
+        ///   Looks up a localized string similar to ISBN is required..
         /// </summary>
-        public static string Name {
+        public static string ISBN_Required {
             get {
-                return ResourceManager.GetString("Name", resourceCulture);
+                return ResourceManager.GetString("ISBN_Required", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The SKU field is required..
+        ///   Looks up a localized string similar to Genres should have less than {1} items selected.
         /// </summary>
-        public static string SKU {
+        public static string MinLength_MaxLength {
             get {
-                return ResourceManager.GetString("SKU", resourceCulture);
+                return ResourceManager.GetString("MinLength_MaxLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} should be more than {1} and less than {2} characters long.
+        /// </summary>
+        public static string Name_Length {
+            get {
+                return ResourceManager.GetString("Name_Length", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name is required.
+        /// </summary>
+        public static string Name_Required {
+            get {
+                return ResourceManager.GetString("Name_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name should have the first {0} character(s) uppercase.
+        /// </summary>
+        public static string Name_UpperCase {
+            get {
+                return ResourceManager.GetString("Name_UpperCase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of pages should be between {1} and {2}.
+        /// </summary>
+        public static string NumberOfPages_Range {
+            get {
+                return ResourceManager.GetString("NumberOfPages_Range", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Url is invalid.
+        /// </summary>
+        public static string Url {
+            get {
+                return ResourceManager.GetString("Url", resourceCulture);
             }
         }
     }

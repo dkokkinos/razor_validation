@@ -66,7 +66,7 @@ namespace ValidationApplication
             }
 
             var supportedCultures = new[] { "en", "el" };
-            var localizationOptions = new RequestLocalizationOptions().SetDefaultCulture(supportedCultures[0])
+            var localizationOptions = new RequestLocalizationOptions().SetDefaultCulture(supportedCultures[1])
                 .AddSupportedCultures(supportedCultures)
                 .AddSupportedUICultures(supportedCultures);
 

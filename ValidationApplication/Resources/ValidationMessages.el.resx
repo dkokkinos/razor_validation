@@ -117,13 +117,55 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ISBN" xml:space="preserve">
-    <value>Το {0} θα πρέπει να είναι έγγυρο ISBN</value>
+  <data name="AuthorName_Length" xml:space="preserve">
+    <value>Το όνομα συγγραφέα θα πρέπει να έχει μέγεθος μεταξύ {2} και {1} χαρακτήρων</value>
   </data>
-  <data name="Name" xml:space="preserve">
+  <data name="AuthorName_Required" xml:space="preserve">
+    <value>Το όνομα του συγγραφέα ειναι απαραίτητο</value>
+  </data>
+  <data name="Description_Length" xml:space="preserve">
+    <value>Η περιγραφή δε πρέπει να ξεπερνάει τους {1} χαρακτήρες</value>
+  </data>
+  <data name="EmailRepeated_Compare" xml:space="preserve">
+    <value>Τα πεδία '{0}' και '{1}' δεν ταιριάζουν</value>
+  </data>
+  <data name="EmailRepeated_Required" xml:space="preserve">
+    <value>Το email είναι απαραίτητο</value>
+  </data>
+  <data name="EmailRepeated_Validation" xml:space="preserve">
+    <value>Το email δεν ειναι έγγυρο</value>
+  </data>
+  <data name="Email_Required" xml:space="preserve">
+    <value>Το email είναι απαραίτητο</value>
+  </data>
+  <data name="Email_Validation" xml:space="preserve">
+    <value>Το email δεν ειναι έγγυρο</value>
+  </data>
+  <data name="Genres_MinLength" xml:space="preserve">
+    <value>Το πεδίο '{0}' θα πρέπει να έχει επιλεγμένες τουλάχιστον {1} επιλογή/ες</value>
+  </data>
+  <data name="ISBN" xml:space="preserve">
+    <value>Το {0} δεν ειναι έγγυρο</value>
+  </data>
+  <data name="ISBN_Required" xml:space="preserve">
+    <value>Τo {0} ειναι απαραίτητο πεδίο</value>
+  </data>
+  <data name="MinLength_MaxLength" xml:space="preserve">
+    <value>Το πεδίο '{0}' θα πρέπει να έχει επιλεγμένες λιγότερες απο {1} επιλογές</value>
+  </data>
+  <data name="Name_Length" xml:space="preserve">
+    <value>Το Όνομα θα πρέπει να έχει μέγεθος μεταξύ {2} και {1} χαρακτήρων</value>
+  </data>
+  <data name="Name_Required" xml:space="preserve">
+    <value>Το Όνομα ειναι απαραίτητο</value>
+  </data>
+  <data name="Name_UpperCase" xml:space="preserve">
     <value>Το Όνομα θα πρέπει να έχει τους {0} πρώτους χαρακτήρες κεφαλαίους</value>
   </data>
-  <data name="SKU" xml:space="preserve">
-    <value>Τo πεδίο SKU είναι απαραίτητο</value>
+  <data name="NumberOfPages_Range" xml:space="preserve">
+    <value>Ο αριθμός σελίδων πρέπει να είναι μεταξύ {1} και {2} σελίδων</value>
+  </data>
+  <data name="Url" xml:space="preserve">
+    <value>Το url δεν είναι έγγυρο</value>
   </data>
 </root>
